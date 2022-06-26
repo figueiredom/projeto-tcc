@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">    
+    <title>Projeto de Molas</title>
+</head>
+<body>
+    <header>
+        <h1>Projeto de Mola Helicoidal de Compressão</h1>
+    </header>
+    <main>
+        <fieldset>
+            <legend>Informe os Dados Solicitados Abaixo</legend>
+            <section  class="conteudo-principal">
+                <div class="container_um">
+                    <div class="input">
+                        <label class="dados"> Diâmetro da espira (mm)</label>
+                        <input type="number" id="diametrodaespira" style="width:50px; height: 20px;">
+                    </div>
+                    <div class="input">
+                        <label class="dados"> Força Máxima de trabalho (N) </label>
+                        <input type="number" id="ForcaMax" style="width:50px; height: 20px;">
+                    </div>
+                    <div class="input">
+                        <label class="dados">Força Mínima de trabalho (N) </label>
+                        <input type="number" id="ForcaMin" style="width:50px; height: 20px;">
+                    </div>
+                    <div class="input">
+                        <label class="dados">Frequência de trabalho (Hz) </label>
+                        <input type="number" id="freq" style="width:50px; height: 20px;">
+                    </div>
+                    <div class="input">
+                        <label class="dados">Valor do A (MPa.mm)</label>
+                        <input type="number" id="amaterial" style="width:50px; height: 20px;">
+                    </div>
+                    <div class="input">
+                        <label class="dados">Valor do m</label>
+                        <input type="number" id="mmaterial" style="width:50px; height: 20px;">
+                    </div>
+            
+                </div>
+                <div>
+                    <img src="WhatsApp Image 2022-06-10 at 22.46.06.jpeg" alt="Exemplo de mola">
+                </div>
+                <div class="container_dois">
+                    <div class="input">
+                        <label class="dados">Custo relativo do material</label>
+                        <input type="number" id="custo" style="width:50px; height: 20px;">
+                    </div>
+                    <div class="input">
+                        <label class="dados" >Deflexão máxima (mm)</label>
+                        <input type="number" id="deflexmax" style="width:50px; height: 20px;">
+                    </div>
+                    <div class="input">
+                        <label class="dados">Módulo de Cisalhamento (GPa)</label>
+                        <input type="number" id="modcisalhamento" style="width:50px; height: 20px;">
+                    </div>
+                    <div class="input">
+                        <label class="dados"> Comprimento máximo de mola Livre (mm)</label>
+                        <input type="number" id="maxLzero" style="width:50px; height: 20px;">
+                    </div>
+                    <div class="input">
+                        <label class="dados"> Comprimento máximo de mola Fechada (mm) </label>
+                        <input type="number" id="maxLs" style="width:50px; height: 20px;">
+                    </div>
+                </div>
+            </section>
+            <div class="input">
+                <strong>Tratamento Superficial:</strong>
+                <input type="radio" id="semjateamento" value="sem" name="jateamento"> Sem Jateamento
+                <input type="radio" id="comjateamento" value="com" name="jateamento"> Com Jateamento
+            </div>
+            <div class="input">
+                <strong>Tratamento de extremidade:</strong>
+                <input type="radio" id="plana" value="plana" name="extremidade"> Plana
+                <input type="radio" id="planesmel" value="planesmel" name="extremidade"> Plana e esmerilhada
+                <input type="radio" id="esqfech" value="esqfech" name="extremidade"> Esquadrada ou fechada
+                <input type="radio" id="esqesmel" value="esqesmel" name="extremidade"> Esquadrada e esmerilhada
+            </div >
+            <div class="input">
+                <strong>Condição de extremidade</strong> (a mola está entre superfícies):
+                <input type="radio" id="plana" value="plana" name="extremidade">  Planas
+                <input type="radio" id="planesmel" value="planesmel" name="extremidade"> Uma Plana e a outra pivotada (articulada)
+                <input type="radio" id="esqfech" value="esqfech" name="extremidade"> Ambas extremidades pivotadas(articuladas)
+                <input type="radio" id="esqesmel" value="esqesmel" name="extremidade"> Uma  engastada e a outra livre
+            </div >
+                        
+                <div class="botoes">
+                    <button class ="botao" id="calcular">Inserir Diâmetro</button>
+                    <button class ="botao" id="calcular">Excluir Diâmetro</button>
+                    <button class ="botao" id="calcular"><a href="pagina2.html">Consultar tabelas</a></button>
+                </div>            
+            <section>
+        </fieldset>
+            <div class="container_tres">
+                <table id = "valores">
+                    <thead>
+                        <tr class="cabecalho">
+                            <td>Diâmetro de fio (mm) </td>
+                            <td>Diâmetro Médio (mm)</td>
+                            <td>Diâmetro Interno (mm)</td>
+                            <td>Diâmetro Externo (mm)</td>
+                            <td>C</td>
+                            <td>N° de espiras ativas</td>
+                            <td>Comprimento Sólido (mm)</td>
+                            <td>Comprimento Livre (mm)</td>
+                            <td>Comprimento Crítico (mm)</td>
+                            <td>Frequência natural (Hz)</td>
+                            <td>Valor admensional de Custo</td>
+                            <td>STATUS DO PROJETO</td>                            
+                        </tr>                                                        
+                    </thead>                        
+                </table>
+            </div>
+            <div class="result" id="resultado"></div>  
+        </section>
+           
+    </main>
+    <script src="script.js"></script>
+    <footer>
+        <p class="paragrafo-rodape">&copy; Produzido por Saulo Mariano Figueirêdo de Lima</p>
+    </footer>
+    
+</body>
+</html>
