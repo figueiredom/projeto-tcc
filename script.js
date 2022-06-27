@@ -1,4 +1,6 @@
 const calcular = document.getElementById('calcular');
+const excluir = document.getElementById('excluir');
+
 function mola() {
     var de = Number(document.getElementById('diametrodaespira').value); //diâmetro da espira
     var fmax = Number(document.getElementById('ForcaMax').value); // Força máxima sobre a mola
@@ -57,9 +59,22 @@ function mola() {
             }
         }
     }
+    var condicao_extremidade = document.getElementsByName('condicao');
+    if(condicao_extremidade[0].checked){
+        var alfa_condicao = 0.5;
+        if (condicao_extremidade[1].checked){
+            var alfa_condicao = 0.707;
+        }else {
+            if(condicao_extremidade[2].checked){
+                var alfa_condicao = 1;
+            }else if(condicao_extremidade[3].checked){
+                var alfa_condicao = 2;             
+            }
+        }
+    }
     var Lzero = Ls +(Fs/k);// Comprimento Livre da mola
     var ys = Lzero - Ls;//Comprimento de Trabalho
-    var Lcrit = (2.63*D)/0.5;//Comprimento crítico para estabilidade
+    var Lcrit = (2.63*D)/alfa_condicao;//Comprimento crítico para estabilidade
     var Kb = (4*C +2)/(4*C - 3);
     var W = [(pi**2)*(de**2)*D*Na*(0.000082)]/4;//peso da mola
     var Fn = 0.5*Math.sqrt((9.81*k*1000)/W);// Frequência natural da mola
@@ -113,5 +128,17 @@ function mola() {
         cellstatus.innerHTML = "Reprovado"
     }
 
+
+
 }
+
 calcular.addEventListener('click', mola);
+
+function delRegistro() { 
+    var tb = document.getElementById("valores");
+    // var qtdLinhas = tb.rows.length;
+    var linha = tb.remove();       
+}
+excluir.addEventListener('click', delRegistro);
+
+
